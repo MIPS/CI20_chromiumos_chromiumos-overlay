@@ -61,6 +61,7 @@ ALL_BOARDS=(
 	#candy_freon
 	cardhu
 	#chronos
+	ci20
 	cid
 	clapper
 	#clapper_freon
