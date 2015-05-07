@@ -814,7 +814,7 @@ cros-kernel2_src_compile() {
 			;;
 		mips)
 			build_targets=(
-				vmlinuz.bin
+				$(usex kernel_uimage 'uImage' 'vmlinuz.bin')
 				$(usex device_tree 'dtbs' '')
 				$(cros_chkconfig_present MODULES && echo "modules")
 			)
@@ -921,7 +921,7 @@ cros-kernel2_src_install() {
 			emit_its_script "${its_script}" "${kernel_dir}" \
 				$(get_dtb_name "${dtb_dir}")
 			mkimage -D "-I dts -O dtb -p 2048" -f "${its_script}" "${kernel_bin}" || die
-		elif [[ "${kernel_arch}" == "arm" ]]; then
+		elif [[ "${kernel_arch}" == "arm" ]] || (use mips && use kernel_uimage); then
 			cp "${boot_dir}/uImage" "${kernel_bin}" || die
 			if use boot_dts_device_tree; then
 				# For boards where the device tree .dtb file is stored
