@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="4"
-CROS_WORKON_COMMIT="caa07bba5fdfe423b2607351531c8a7c0560cfc3"
-CROS_WORKON_TREE="c362a88d078393e6d5ecee004c7e42d6ab820240"
-CROS_WORKON_PROJECT="chromiumos/third_party/linux-firmware"
+CROS_WORKON_REPO="git://github.com/MIPS"
+CROS_WORKON_PROJECT="CI20_chromiumos_linux-firmware"
+CROS_WORKON_COMMIT="bca19cf636d5953f5f12aa6c4a2f9ddc8d9742cf"
 CROS_WORKON_OUTOFTREE_BUILD=1
 
 inherit cros-workon
