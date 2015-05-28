@@ -1,6 +1,82 @@
 [
   {
     "compat_id": {
+      "arch": "x86", 
+      "cflags": [
+        "-O2", 
+        "-pipe", 
+        "-march=i686", 
+        "-mfpmath=sse", 
+        "-mmmx", 
+        "-msse", 
+        "-msse2", 
+        "-msse3", 
+        "-g", 
+        "-fno-exceptions", 
+        "-fno-unwind-tables", 
+        "-fno-asynchronous-unwind-tables"
+      ], 
+      "useflags": [
+        "X", 
+        "accessibility", 
+        "autotest", 
+        "build_tests", 
+        "buildcheck", 
+        "chrome_debug", 
+        "chrome_remoting", 
+        "gold", 
+        "highdpi", 
+        "nacl", 
+        "opengl", 
+        "runhooks", 
+        "v4l2_codec", 
+        "vaapi"
+      ]
+    }, 
+    "key": {
+      "board": "x86-generic", 
+      "useflags": [
+        "-chrome_internal"
+      ]
+    }
+  }, 
+  {
+    "compat_id": {
+      "arch": "amd64", 
+      "cflags": [
+        "-O2", 
+        "-pipe", 
+        "-march=x86-64", 
+        "-msse3", 
+        "-g", 
+        "-fno-exceptions", 
+        "-fno-unwind-tables", 
+        "-fno-asynchronous-unwind-tables"
+      ], 
+      "useflags": [
+        "X", 
+        "accessibility", 
+        "autotest", 
+        "build_tests", 
+        "buildcheck", 
+        "chrome_debug", 
+        "chrome_remoting", 
+        "gold", 
+        "highdpi", 
+        "nacl", 
+        "opengl", 
+        "runhooks", 
+        "v4l2_codec", 
+        "vaapi"
+      ]
+    }, 
+    "key": {
+      "board": "amd64-generic", 
+      "useflags": []
+    }
+  }, 
+  {
+    "compat_id": {
       "arch": "arm", 
       "cflags": [
         "-O2", 
@@ -27,7 +103,6 @@
         "highdpi", 
         "nacl", 
         "neon", 
-        "ninja", 
         "opengles", 
         "runhooks", 
         "v4l2_codec"
@@ -68,7 +143,6 @@
         "highdpi", 
         "nacl", 
         "neon", 
-        "ninja", 
         "opengles", 
         "runhooks", 
         "v4l2_codec"
@@ -97,7 +171,6 @@
         "buildcheck", 
         "chrome_debug", 
         "highdpi", 
-        "ninja", 
         "opengl", 
         "runhooks", 
         "v4l2_codec"
@@ -112,48 +185,6 @@
   }, 
   {
     "compat_id": {
-      "arch": "x86", 
-      "cflags": [
-        "-O2", 
-        "-pipe", 
-        "-march=i686", 
-        "-mfpmath=sse", 
-        "-mmmx", 
-        "-msse", 
-        "-msse2", 
-        "-msse3", 
-        "-g", 
-        "-fno-exceptions", 
-        "-fno-unwind-tables", 
-        "-fno-asynchronous-unwind-tables"
-      ], 
-      "useflags": [
-        "X", 
-        "accessibility", 
-        "autotest", 
-        "build_tests", 
-        "buildcheck", 
-        "chrome_debug", 
-        "chrome_remoting", 
-        "gold", 
-        "highdpi", 
-        "nacl", 
-        "ninja", 
-        "opengl", 
-        "runhooks", 
-        "v4l2_codec", 
-        "vaapi"
-      ]
-    }, 
-    "key": {
-      "board": "x86-generic", 
-      "useflags": [
-        "-chrome_internal"
-      ]
-    }
-  }, 
-  {
-    "compat_id": {
       "arch": "amd64", 
       "cflags": [
         "-O2", 
@@ -166,7 +197,6 @@
         "-fno-asynchronous-unwind-tables"
       ], 
       "useflags": [
-        "X", 
         "accessibility", 
         "autotest", 
         "build_tests", 
@@ -177,7 +207,6 @@
         "gold", 
         "highdpi", 
         "nacl", 
-        "ninja", 
         "opengles", 
         "ozone", 
         "ozone_platform_default_gbm", 
@@ -191,42 +220,6 @@
     }, 
     "key": {
       "board": "amd64-generic_freon", 
-      "useflags": []
-    }
-  }, 
-  {
-    "compat_id": {
-      "arch": "amd64", 
-      "cflags": [
-        "-O2", 
-        "-pipe", 
-        "-march=x86-64", 
-        "-msse3", 
-        "-g", 
-        "-fno-exceptions", 
-        "-fno-unwind-tables", 
-        "-fno-asynchronous-unwind-tables"
-      ], 
-      "useflags": [
-        "X", 
-        "accessibility", 
-        "autotest", 
-        "build_tests", 
-        "buildcheck", 
-        "chrome_debug", 
-        "chrome_remoting", 
-        "gold", 
-        "highdpi", 
-        "nacl", 
-        "ninja", 
-        "opengl", 
-        "runhooks", 
-        "v4l2_codec", 
-        "vaapi"
-      ]
-    }, 
-    "key": {
-      "board": "amd64-generic", 
       "useflags": []
     }
   }, 
@@ -246,7 +239,6 @@
         "-fno-asynchronous-unwind-tables"
       ], 
       "useflags": [
-        "X", 
         "accessibility", 
         "autotest", 
         "build_tests", 
@@ -259,7 +251,6 @@
         "highdpi", 
         "nacl", 
         "neon", 
-        "ninja", 
         "opengles", 
         "ozone", 
         "ozone_platform_default_gbm", 

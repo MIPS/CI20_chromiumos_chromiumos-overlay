@@ -31,7 +31,7 @@ ALL_BOARDS=(
 	amd64-generic_freon
 	amd64-generic_mobbuild
 	amd64-host
-	anglar
+	#anglar
 	#app-shell-panther
 	aries
 	arkham
@@ -117,6 +117,7 @@ ALL_BOARDS=(
 	kip
 	#kip_freon
 	klang
+	kunimitsu
 	lakitu
 	laser
 	#lemmings
@@ -164,7 +165,7 @@ ALL_BOARDS=(
 	#parrot_ivb-freon
 	parrot32
 	parrot64
-	parry
+	#parry
 	peach
 	peach_kirby
 	peach_pi

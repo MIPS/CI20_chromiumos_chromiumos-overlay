@@ -28,11 +28,11 @@ PKGDIR="/var/lib/portage/pkgs"
 PORT_LOGDIR="/var/log/portage"
 
 source /usr/local/portage/chromiumos/chromeos/binhost/host/amd64-PREFLIGHT_BINHOST.conf
-FULL_BINHOST="gs://chromeos-prebuilt/host/amd64/amd64-host/chroot-2015.05.20.175815/packages/"
+FULL_BINHOST="gs://chromeos-prebuilt/host/amd64/amd64-host/chroot-2015.05.27.145939/packages/"
 PORTAGE_BINHOST="$PREFLIGHT_BINHOST $FULL_BINHOST"
 
 # expat needed for XML parsing in GDB, but enable globally as overhead is tiny.
-USE="${USE} -cups hardened cros_host multilib pic pie -introspection expat"
+USE="${USE} hardened cros_host multilib pic pie -introspection expat"
 USE="${USE} -cracklib platform2"
 
 GENTOO_MIRRORS="https://commondatastorage.googleapis.com/chromeos-localmirror"

@@ -110,6 +110,7 @@ SERVER_IUSE_TESTS="
 	+tests_firmware_UpdateKernelSubkeyVersion
 	+tests_firmware_UpdateKernelVersion
 	+tests_firmware_UserRequestRecovery
+	+tests_graphics_PowerConsumption
 	+tests_hardware_DiskFirmwareUpgrade
 	+tests_hardware_MemoryIntegrity
 	+tests_hardware_StorageQualBase
@@ -121,6 +122,7 @@ SERVER_IUSE_TESTS="
 	+tests_kernel_MemoryRamoop
 	moblab? ( +tests_moblab_RunSuite )
 	cros_p2p? ( +tests_p2p_EndToEndTest )
+	+tests_network_FirewallHolePunchServer
 	+tests_platform_BootDevice
 	+tests_platform_BootPerfServer
 	+tests_platform_CompromisedStatefulPartition

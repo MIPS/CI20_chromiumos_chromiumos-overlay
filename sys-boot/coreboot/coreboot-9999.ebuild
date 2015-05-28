@@ -14,8 +14,8 @@ CROS_WORKON_LOCALNAME=(
 )
 CROS_WORKON_DESTDIR=(
 	"${S}"
-	"${S}/vboot_reference"
-	"${S}/3rdparty"
+	"${S}/3rdparty/vboot"
+	"${S}/3rdparty/blobs"
 )
 
 inherit cros-board cros-workon toolchain-funcs
@@ -28,8 +28,8 @@ KEYWORDS="~*"
 IUSE="em100-mode fsp memmaps mocktpm quiet-cb rmt vmx"
 
 PER_BOARD_BOARDS=(
-	bayleybay beltino bolt butterfly cyan daisy falco fox gizmo glados link
-	lumpy nyan panther parrot peppy rambi samus sklrvp slippy stout stout32
+	bayleybay beltino bolt butterfly cyan daisy falco fox gizmo glados kunimitsu
+	link lumpy nyan panther parrot peppy rambi samus sklrvp slippy stout stout32
 	strago stumpy urara variant-peach-pit
 )
 
@@ -59,6 +59,7 @@ VERIFIED_STAGES=( "ramstage" "romstage" "refcode" "bl31" )
 src_prepare() {
 	local privdir="${SYSROOT}/firmware/coreboot-private"
 	local file
+
 	if [[ -d "${privdir}" ]]; then
 		while read -d $'\0' -r file; do
 			rsync --recursive --links --executability --ignore-existing \
@@ -155,26 +156,17 @@ src_compile() {
 	local sha1v="${VCSID/*-/}"
 	export KERNELREVISION=".${PV}.${sha1v:0:7}"
 
-	# Firmware related binaries are compiled with a 32-bit toolchain
-	# on 64-bit platforms
-	if use amd64 ; then
-		export CROSS_COMPILE="i686-pc-linux-gnu-"
-		export CC="${CROSS_COMPILE}gcc"
-	elif use arm || use arm64 ; then
-		extra_flags="-ffunction-sections"
-		# Export the known cross compilers for ARM systems. Include
-		# both v7a and 64-bit armv8 compilers so there isn't a reliance
-		# on what the default profile is for exporting a compiler. The
-		# reasoning is that the firmware may need both to build and
-		# and boot.
-		# aarch64: used on chromeos-2013.04
-		export CROSS_COMPILE_aarch64="aarch64-cros-linux-gnu-"
-		# arm64: used on coreboot upstream
-		export CROSS_COMPILE_arm64="aarch64-cros-linux-gnu-"
-		export CROSS_COMPILE_arm="armv7a-cros-linux-gnu- armv7a-cros-linux-gnueabi-"
-	else
-		export CROSS_COMPILE=${CHOST}-
-	fi
+	# Export the known cross compilers so there isn't a reliance
+	# on what the default profile is for exporting a compiler. The
+	# reasoning is that the firmware may need more than one to build
+	# and boot.
+	export CROSS_COMPILE_i386="i686-pc-linux-gnu-"
+	export CROSS_COMPILE_mipsel="mipsel-cros-linux-gnu-"
+	# aarch64: used on chromeos-2013.04
+	export CROSS_COMPILE_aarch64="aarch64-cros-linux-gnu-"
+	# arm64: used on coreboot upstream
+	export CROSS_COMPILE_arm64="aarch64-cros-linux-gnu-"
+	export CROSS_COMPILE_arm="armv7a-cros-linux-gnu- armv7a-cros-linux-gnueabi-"
 
 	elog "Toolchain:\n$(sh util/xcompile/xcompile)\n"
 
